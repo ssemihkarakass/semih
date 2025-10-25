@@ -1,67 +1,65 @@
+'use client'
+
 import { Locale } from '@/i18n/config'
-import { getDictionary } from '@/i18n/dictionaries'
-import { motion } from 'framer-motion'
 import { Calendar, Clock, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
-export default async function BlogPage({
-  params,
-}: {
-  params: { lang: Locale }
-}) {
-  const dict = await getDictionary(params.lang)
+export default function BlogPage() {
+  const params = useParams()
+  const lang = params.lang as Locale
 
   const blogPosts = [
     {
       id: 1,
-      title: params.lang === 'en' 
+      title: lang === 'en' 
         ? 'Getting Started with Next.js 14 App Router'
         : 'Next.js 14 App Router ile Başlangıç',
-      excerpt: params.lang === 'en'
+      excerpt: lang === 'en'
         ? 'Learn how to build modern web applications using Next.js 14 with the new App Router, Server Components, and more.'
         : 'Next.js 14 ile yeni App Router, Server Components ve daha fazlasını kullanarak modern web uygulamaları oluşturmayı öğrenin.',
       date: '2024-10-15',
-      readTime: params.lang === 'en' ? '5 min read' : '5 dk okuma',
-      category: params.lang === 'en' ? 'Web Development' : 'Web Geliştirme',
+      readTime: lang === 'en' ? '5 min read' : '5 dk okuma',
+      category: lang === 'en' ? 'Web Development' : 'Web Geliştirme',
       slug: 'getting-started-nextjs-14',
     },
     {
       id: 2,
-      title: params.lang === 'en'
+      title: lang === 'en'
         ? 'Building Beautiful UIs with Tailwind CSS'
         : 'Tailwind CSS ile Güzel Arayüzler Oluşturma',
-      excerpt: params.lang === 'en'
+      excerpt: lang === 'en'
         ? 'Discover best practices for creating stunning, responsive user interfaces using Tailwind CSS utility classes.'
         : 'Tailwind CSS utility sınıflarını kullanarak çarpıcı, responsive kullanıcı arayüzleri oluşturmak için en iyi uygulamaları keşfedin.',
       date: '2024-10-10',
-      readTime: params.lang === 'en' ? '8 min read' : '8 dk okuma',
+      readTime: lang === 'en' ? '8 min read' : '8 dk okuma',
       category: 'CSS',
       slug: 'building-uis-tailwind',
     },
     {
       id: 3,
-      title: params.lang === 'en'
+      title: lang === 'en'
         ? 'TypeScript Tips for Better Code Quality'
         : 'Daha İyi Kod Kalitesi için TypeScript İpuçları',
-      excerpt: params.lang === 'en'
+      excerpt: lang === 'en'
         ? 'Essential TypeScript patterns and practices that will make your code more maintainable and type-safe.'
         : 'Kodunuzu daha sürdürülebilir ve tip güvenli hale getirecek temel TypeScript kalıpları ve uygulamaları.',
       date: '2024-10-05',
-      readTime: params.lang === 'en' ? '6 min read' : '6 dk okuma',
+      readTime: lang === 'en' ? '6 min read' : '6 dk okuma',
       category: 'TypeScript',
       slug: 'typescript-tips',
     },
     {
       id: 4,
-      title: params.lang === 'en'
+      title: lang === 'en'
         ? 'Mastering Framer Motion Animations'
         : 'Framer Motion Animasyonlarında Ustalaşma',
-      excerpt: params.lang === 'en'
+      excerpt: lang === 'en'
         ? 'Create smooth, professional animations in React applications using Framer Motion library.'
         : 'Framer Motion kütüphanesini kullanarak React uygulamalarında pürüzsüz, profesyonel animasyonlar oluşturun.',
       date: '2024-09-28',
-      readTime: params.lang === 'en' ? '7 min read' : '7 dk okuma',
-      category: params.lang === 'en' ? 'Animation' : 'Animasyon',
+      readTime: lang === 'en' ? '7 min read' : '7 dk okuma',
+      category: lang === 'en' ? 'Animation' : 'Animasyon',
       slug: 'mastering-framer-motion',
     },
   ]
@@ -72,11 +70,11 @@ export default async function BlogPage({
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-heading font-bold mb-4">
-            {dict.blog.title} <span className="gradient-text">{dict.blog.titleHighlight}</span>
+            {lang === 'en' ? 'Latest' : 'Son'} <span className="gradient-text">{lang === 'en' ? 'Articles' : 'Yazılar'}</span>
           </h1>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-emerald via-primary-teal to-primary-cyan mx-auto rounded-full mb-6" />
           <p className="text-gray-400 max-w-2xl mx-auto">
-            {params.lang === 'en' 
+            {lang === 'en' 
               ? 'Thoughts, tutorials, and insights about web development, design, and technology.'
               : 'Web geliştirme, tasarım ve teknoloji hakkında düşünceler, eğitimler ve içgörüler.'}
           </p>
@@ -110,7 +108,7 @@ export default async function BlogPage({
               <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
                 <div className="flex items-center gap-1">
                   <Calendar size={16} />
-                  <span>{new Date(post.date).toLocaleDateString(params.lang === 'en' ? 'en-US' : 'tr-TR', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <span>{new Date(post.date).toLocaleDateString(lang === 'en' ? 'en-US' : 'tr-TR', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Clock size={16} />
@@ -120,11 +118,11 @@ export default async function BlogPage({
 
               {/* Read More */}
               <Link
-                href={`/${params.lang}/blog/${post.slug}`}
+                href={`/${lang}/blog/${post.slug}`}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-gray-300 hover:text-white transition-all duration-200 border border-white/10 hover:border-white/20"
               >
                 <span className="font-semibold">
-                  {params.lang === 'en' ? 'Read More' : 'Devamını Oku'}
+                  {lang === 'en' ? 'Read More' : 'Devamını Oku'}
                 </span>
                 <ArrowRight size={16} />
               </Link>

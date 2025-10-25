@@ -163,7 +163,7 @@ const Projects = ({ dict, lang }: ProjectsProps) => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent opacity-70" />
                 {/* Category badge */}
-                <div className="absolute top-4 right-4 px-3 py-1 liquid-glass rounded-full text-xs font-semibold text-primary-cyan border border-primary-cyan/30">
+                <div className="absolute top-4 right-4 px-3 py-1 bg-primary-cyan/20 backdrop-blur-sm rounded-full text-xs font-semibold text-primary-cyan border border-primary-cyan/40">
                   {project.category}
                 </div>
               </div>
