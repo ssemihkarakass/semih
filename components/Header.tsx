@@ -25,11 +25,26 @@ const Header = ({ lang, dict }: HeaderProps) => {
   }, [])
 
   const navItems = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { 
+      name: lang === 'en' ? 'Home' : 'Ana Sayfa', 
+      href: '#hero' 
+    },
+    { 
+      name: lang === 'en' ? 'About' : 'Hakkımda', 
+      href: '#about' 
+    },
+    { 
+      name: lang === 'en' ? 'Projects' : 'Projeler', 
+      href: '#projects' 
+    },
+    { 
+      name: lang === 'en' ? 'Blog' : 'Blog', 
+      href: '#blog' 
+    },
+    { 
+      name: lang === 'en' ? 'Contact' : 'İletişim', 
+      href: '#contact' 
+    },
   ]
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

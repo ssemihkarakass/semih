@@ -24,38 +24,54 @@ const Blog = ({ dict, lang }: BlogProps) => {
   const blogPosts: BlogPost[] = [
     {
       id: 1,
-      title: 'Getting Started with Next.js 14 App Router',
-      excerpt: 'Learn how to build modern web applications using Next.js 14 with the new App Router, Server Components, and more.',
+      title: lang === 'en' 
+        ? 'Getting Started with Next.js 14 App Router'
+        : 'Next.js 14 App Router ile Başlangıç',
+      excerpt: lang === 'en'
+        ? 'Learn how to build modern web applications using Next.js 14 with the new App Router, Server Components, and more.'
+        : 'Next.js 14 ile yeni App Router, Server Components ve daha fazlasını kullanarak modern web uygulamaları oluşturmayı öğrenin.',
       date: '2024-10-15',
-      readTime: '5 min read',
-      category: 'Web Development',
+      readTime: lang === 'en' ? '5 min read' : '5 dk okuma',
+      category: lang === 'en' ? 'Web Development' : 'Web Geliştirme',
       slug: 'getting-started-nextjs-14',
     },
     {
       id: 2,
-      title: 'Building Beautiful UIs with Tailwind CSS',
-      excerpt: 'Discover best practices for creating stunning, responsive user interfaces using Tailwind CSS utility classes.',
+      title: lang === 'en'
+        ? 'Building Beautiful UIs with Tailwind CSS'
+        : 'Tailwind CSS ile Güzel Arayüzler Oluşturma',
+      excerpt: lang === 'en'
+        ? 'Discover best practices for creating stunning, responsive user interfaces using Tailwind CSS utility classes.'
+        : 'Tailwind CSS utility sınıflarını kullanarak çarpıcı, responsive kullanıcı arayüzleri oluşturmak için en iyi uygulamaları keşfedin.',
       date: '2024-10-10',
-      readTime: '8 min read',
+      readTime: lang === 'en' ? '8 min read' : '8 dk okuma',
       category: 'CSS',
       slug: 'building-uis-tailwind',
     },
     {
       id: 3,
-      title: 'TypeScript Tips for Better Code Quality',
-      excerpt: 'Essential TypeScript patterns and practices that will make your code more maintainable and type-safe.',
+      title: lang === 'en'
+        ? 'TypeScript Tips for Better Code Quality'
+        : 'Daha İyi Kod Kalitesi için TypeScript İpuçları',
+      excerpt: lang === 'en'
+        ? 'Essential TypeScript patterns and practices that will make your code more maintainable and type-safe.'
+        : 'Kodunuzu daha sürdürülebilir ve tip güvenli hale getirecek temel TypeScript kalıpları ve uygulamaları.',
       date: '2024-10-05',
-      readTime: '6 min read',
+      readTime: lang === 'en' ? '6 min read' : '6 dk okuma',
       category: 'TypeScript',
       slug: 'typescript-tips',
     },
     {
       id: 4,
-      title: 'Mastering Framer Motion Animations',
-      excerpt: 'Create smooth, professional animations in React applications using Framer Motion library.',
+      title: lang === 'en'
+        ? 'Mastering Framer Motion Animations'
+        : 'Framer Motion Animasyonlarında Ustalaşma',
+      excerpt: lang === 'en'
+        ? 'Create smooth, professional animations in React applications using Framer Motion library.'
+        : 'Framer Motion kütüphanesini kullanarak React uygulamalarında pürüzsüz, profesyonel animasyonlar oluşturun.',
       date: '2024-09-28',
-      readTime: '7 min read',
-      category: 'Animation',
+      readTime: lang === 'en' ? '7 min read' : '7 dk okuma',
+      category: lang === 'en' ? 'Animation' : 'Animasyon',
       slug: 'mastering-framer-motion',
     },
   ]
@@ -118,11 +134,11 @@ const Blog = ({ dict, lang }: BlogProps) => {
 
               {/* Read More */}
               <Link
-                href={`/blog/${post.slug}`}
+                href={`/${lang}/blog/${post.slug}`}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-gray-300 hover:text-white transition-all duration-200 border border-white/10 hover:border-white/20"
               >
-                <span className="font-semibold">Read More</span>
-                <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                <span className="font-semibold">{lang === 'en' ? 'Read More' : 'Devamını Oku'}</span>
+                <ArrowRight size={16} />
               </Link>
             </motion.article>
           ))}
@@ -136,7 +152,7 @@ const Blog = ({ dict, lang }: BlogProps) => {
           className="text-center"
         >
           <Link
-            href="/blog"
+            href={`/${lang}/blog`}
             className="inline-flex items-center gap-2 px-8 py-4 liquid-glass rounded-xl font-semibold text-white bg-primary-cyan/20 hover:bg-primary-cyan/30 border border-primary-cyan/30 btn-glow transition-all duration-300"
           >
             {dict.blog.viewAll}
