@@ -49,7 +49,6 @@ const Header = ({ lang, dict }: HeaderProps) => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    setIsMobileMenuOpen(false)
     
     const targetId = href.replace('#', '')
     const element = document.getElementById(targetId)
@@ -59,10 +58,19 @@ const Header = ({ lang, dict }: HeaderProps) => {
       const elementPosition = element.getBoundingClientRect().top
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset
       
+      // Önce scroll yap
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       })
+      
+      // Sonra menüyü kapat (scroll tamamlandıktan sonra)
+      setTimeout(() => {
+        setIsMobileMenuOpen(false)
+      }, 100)
+    } else {
+      // Element bulunamazsa hemen menüyü kapat
+      setIsMobileMenuOpen(false)
     }
   }
 
