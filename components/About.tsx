@@ -53,7 +53,7 @@ const About = ({ dict, lang }: AboutProps) => {
                   scale: [1, 1.02, 1],
                 }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-gradient-to-br from-primary-violet via-primary-cyan to-primary-emerald rounded-2xl blur-3xl opacity-20" 
+                className="hidden md:block absolute inset-0 bg-gradient-to-br from-primary-violet via-primary-cyan to-primary-emerald rounded-2xl blur-3xl opacity-20" 
               />
               <div className="relative glossy-card rounded-2xl p-8 h-full flex items-center justify-center">
                 <div className="text-center">

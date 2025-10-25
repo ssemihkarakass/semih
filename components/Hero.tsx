@@ -16,6 +16,15 @@ const Hero = ({ dict, lang }: HeroProps) => {
   const [showCursor, setShowCursor] = useState(true)
 
   useEffect(() => {
+    // Sadece desktop'ta typing animasyonu
+    const isMobile = window.innerWidth < 768
+    
+    if (isMobile) {
+      setText(fullText)
+      setShowCursor(false)
+      return
+    }
+
     let index = 0
     const typingInterval = setInterval(() => {
       if (index <= fullText.length) {
@@ -34,7 +43,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
       clearInterval(typingInterval)
       clearInterval(cursorInterval)
     }
-  }, [])
+  }, [fullText])
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20" aria-label="Hero section">
@@ -117,7 +126,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
         </div>
       </div>
 
-      {/* Decorative Elements with gradients */}
+      {/* Decorative Elements with gradients - Hidden on mobile */}
       <motion.div
         animate={{ 
           rotate: 360,
@@ -127,7 +136,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
           rotate: { duration: 20, repeat: Infinity, ease: "linear" },
           scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
         }}
-        className="absolute top-20 left-10 w-24 h-24 rounded-full opacity-20"
+        className="hidden md:block absolute top-20 left-10 w-24 h-24 rounded-full opacity-20"
         style={{
           background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)',
           filter: 'blur(2px)'
@@ -142,7 +151,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
           rotate: { duration: 25, repeat: Infinity, ease: "linear" },
           scale: { duration: 5, repeat: Infinity, ease: "easeInOut" }
         }}
-        className="absolute bottom-20 right-10 w-32 h-32 rounded-full opacity-20"
+        className="hidden md:block absolute bottom-20 right-10 w-32 h-32 rounded-full opacity-20"
         style={{
           background: 'linear-gradient(135deg, #10B981, #F97316)',
           filter: 'blur(2px)'
@@ -154,7 +163,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
           x: [0, 20, 0],
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 right-20 w-16 h-16 rounded-full opacity-30"
+        className="hidden md:block absolute top-1/2 right-20 w-16 h-16 rounded-full opacity-30"
         style={{
           background: 'radial-gradient(circle, rgba(99, 102, 241, 0.6), transparent)',
           filter: 'blur(20px)'
