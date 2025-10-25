@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Calendar, Clock, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { Locale } from '@/i18n/config'
 
 interface BlogPost {
   id: number
@@ -14,7 +15,12 @@ interface BlogPost {
   slug: string
 }
 
-const Blog = () => {
+interface BlogProps {
+  dict: any
+  lang: Locale
+}
+
+const Blog = ({ dict, lang }: BlogProps) => {
   const blogPosts: BlogPost[] = [
     {
       id: 1,
@@ -55,7 +61,7 @@ const Blog = () => {
   ]
 
   return (
-    <section id="blog" className="py-20 relative">
+    <section id="blog" className="py-20 relative" aria-labelledby="blog-heading">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <motion.div
@@ -64,8 +70,8 @@ const Blog = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Latest <span className="gradient-text">Articles</span>
+          <h2 id="blog-heading" className="text-4xl md:text-5xl font-heading font-bold mb-4">
+            {dict.blog.title} <span className="gradient-text">{dict.blog.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-emerald via-primary-teal to-primary-cyan mx-auto rounded-full" />
         </motion.div>
@@ -133,9 +139,44 @@ const Blog = () => {
             href="/blog"
             className="inline-flex items-center gap-2 px-8 py-4 liquid-glass rounded-xl font-semibold text-white bg-primary-cyan/20 hover:bg-primary-cyan/30 border border-primary-cyan/30 btn-glow transition-all duration-300"
           >
-            View All Articles
+            {dict.blog.viewAll}
             <ArrowRight size={20} />
           </Link>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
+          <div className="glossy-card rounded-2xl p-8 max-w-3xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-white">
+              {dict.blog.ctaTitle}
+            </h3>
+            <p className="text-gray-400 mb-6">
+              {dict.blog.ctaDescription}
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <motion.a
+                href="#projects"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 bg-gradient-to-r from-primary-emerald to-primary-teal text-white rounded-lg font-semibold shadow-glow-cyan transition-all duration-300"
+              >
+                {dict.blog.viewProjects}
+              </motion.a>
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 liquid-glass text-white rounded-lg font-semibold border border-primary-cyan/30 hover:border-primary-cyan/60 transition-all duration-300"
+              >
+                {dict.blog.getInTouch}
+              </motion.a>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -2,8 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { Code, Laptop, Zap, Globe } from 'lucide-react'
+import { Locale } from '@/i18n/config'
 
-const About = () => {
+interface AboutProps {
+  dict: any
+  lang: Locale
+}
+
+const About = ({ dict, lang }: AboutProps) => {
   const skills = [
     { icon: Code, title: 'Web Development', description: 'Building modern, responsive web applications' },
     { icon: Laptop, title: 'Full Stack', description: 'Frontend and backend development expertise' },
@@ -17,7 +23,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="py-20 relative" aria-labelledby="about-heading">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <motion.div
@@ -26,8 +32,8 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            About <span className="gradient-text">Me</span>
+          <h2 id="about-heading" className="text-4xl md:text-5xl font-heading font-bold mb-4">
+            {dict.about.title} <span className="gradient-text">{dict.about.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-violet via-primary-cyan to-primary-emerald mx-auto rounded-full" />
         </motion.div>
@@ -71,22 +77,18 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-3xl font-heading font-bold mb-6 text-white">
-              Passionate Developer from Turkey
+              {dict.about.heading}
             </h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              I'm a 16-year-old software developer with a deep passion for creating modern, 
-              efficient, and beautiful web applications. I love exploring new technologies 
-              and turning ideas into reality through code.
+              {dict.about.description1}
             </p>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              My journey in programming started at a young age, and I've been constantly 
-              learning and growing ever since. I specialize in full-stack web development 
-              with a focus on modern JavaScript frameworks and best practices.
+              {dict.about.description2}
             </p>
 
             {/* Tech Stack */}
             <div className="mb-8">
-              <h4 className="text-xl font-heading font-semibold mb-4 gradient-text">Tech Stack</h4>
+              <h4 className="text-xl font-heading font-semibold mb-4 gradient-text">{dict.about.techStack}</h4>
               <div className="flex flex-wrap gap-3">
                 {techStack.map((tech, index) => (
                   <motion.span
@@ -102,6 +104,26 @@ const About = () => {
                   </motion.span>
                 ))}
               </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                href="#projects"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 bg-gradient-to-r from-primary-violet to-primary-cyan text-white rounded-lg font-semibold shadow-glow-violet hover:shadow-glow-cyan transition-all duration-300"
+              >
+                {dict.about.viewProjects}
+              </motion.a>
+              <motion.a
+                href="#blog"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 liquid-glass text-white rounded-lg font-semibold border border-primary-cyan/30 hover:border-primary-cyan/60 transition-all duration-300"
+              >
+                {dict.about.readBlog}
+              </motion.a>
             </div>
           </motion.div>
         </div>

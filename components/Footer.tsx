@@ -2,8 +2,14 @@
 
 import { Github, Instagram, Linkedin, Mail, Heart } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Locale } from '@/i18n/config'
 
-const Footer = () => {
+interface FooterProps {
+  lang: Locale
+  dict?: any
+}
+
+const Footer = ({ lang, dict }: FooterProps) => {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/ssemihkarakass', label: 'GitHub' },
     { icon: Instagram, href: 'https://instagram.com/ssemihkarakass', label: 'Instagram' },

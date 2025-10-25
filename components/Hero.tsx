@@ -3,10 +3,16 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Code2, Rocket, Sparkles } from 'lucide-react'
+import { Locale } from '@/i18n/config'
 
-const Hero = () => {
+interface HeroProps {
+  dict: any
+  lang: Locale
+}
+
+const Hero = ({ dict, lang }: HeroProps) => {
   const [text, setText] = useState('')
-  const fullText = "Hi, I'm Semih Karakaş"
+  const fullText = dict.hero.greeting
   const [showCursor, setShowCursor] = useState(true)
 
   useEffect(() => {
@@ -31,7 +37,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20" aria-label="Hero section">
       <div className="container mx-auto px-6 z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Typing Animation */}
@@ -61,7 +67,7 @@ const Hero = () => {
               transition={{ duration: 5, repeat: Infinity }}
               className="inline-block"
             >
-              16-year-old software developer passionate about modern web technologies
+              {dict.hero.subtitle}
             </motion.span>
           </motion.p>
 
@@ -73,11 +79,11 @@ const Hero = () => {
           >
             <div className="flex items-center gap-2 px-4 py-2 liquid-glass rounded-full">
               <Code2 size={18} className="text-primary-cyan" />
-              <span className="text-gray-300">Based in Turkey 🇹🇷</span>
+              <span className="text-gray-300">{dict.hero.location}</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 liquid-glass rounded-full">
               <Sparkles size={18} className="text-primary-violet" />
-              <span className="text-gray-300">Available for work</span>
+              <span className="text-gray-300">{dict.hero.availability}</span>
             </div>
           </motion.div>
 
@@ -95,7 +101,7 @@ const Hero = () => {
               className="px-8 py-4 bg-white/10 hover:bg-white/15 rounded-xl font-semibold text-white border border-white/20 hover:border-white/30 transition-all duration-200 inline-flex items-center gap-2"
             >
               <Rocket size={20} />
-              View Projects
+              {dict.hero.viewProjects}
             </motion.a>
 
             <motion.a
@@ -104,7 +110,7 @@ const Hero = () => {
               whileTap={{ scale: 0.98 }}
               className="px-8 py-4 bg-white/5 hover:bg-white/10 rounded-xl font-semibold text-white border border-white/10 hover:border-white/20 transition-all duration-200 inline-flex items-center gap-2"
             >
-              Contact Me
+              {dict.hero.contactMe}
             </motion.a>
           </motion.div>
 

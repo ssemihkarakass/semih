@@ -1,19 +1,22 @@
-# Semih Karakaş - Personal Portfolio & Blog
+# 🚀 Semih Karakaş - Professional Portfolio & Blog
 
-A modern, minimalist portfolio and blog website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Features clean design, smooth animations, and emerald green accents.
+A modern, fully internationalized (i18n) portfolio and blog website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Features professional bilingual support (English/Turkish), clean design, smooth animations, and enterprise-level optimizations.
 
 ![Portfolio Preview](https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&auto=format&fit=crop)
 
 ## ✨ Features
 
-- 🎨 **Minimalist Theme** - Clean black background with white and emerald green accents
+- 🌍 **Full i18n Support** - Complete English/Turkish bilingual system with automatic language detection
+- 🎨 **Modern Design** - Clean glassmorphism UI with gradient accents
 - ⚡ **Next.js 14 App Router** - Latest Next.js features with server components
-- 🎭 **Framer Motion Animations** - Smooth, professional animations throughout
-- 📱 **Fully Responsive** - Mobile-first design that works on all devices
-- 🔍 **SEO Optimized** - Meta tags, Open Graph, and semantic HTML
+- 🎭 **Framer Motion Animations** - Smooth, professional animations (optimized for mobile)
+- 📱 **Fully Responsive** - Mobile-first design with performance optimizations
+- 🔍 **SEO Optimized** - Comprehensive meta tags, Open Graph, Twitter Cards, sitemap, robots.txt
+- ♿ **Accessibility** - WCAG 2.1 compliant with ARIA labels and semantic HTML
 - 📝 **Blog System** - Built-in blog with markdown support
-- 📧 **Contact Form** - Working contact form with Email.js integration
-- 🎯 **Performance Focused** - Optimized for speed and user experience
+- 📧 **Contact Form** - Working contact form with EmailJS integration
+- 🎯 **Performance Focused** - Optimized images, lazy loading, mobile performance tuning
+- 🔒 **Security** - Latest Next.js 14.2.33 with all security patches
 
 ## 🚀 Tech Stack
 

@@ -2,7 +2,9 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { ExternalLink, Github, Filter, Package, Calculator, Globe, ShoppingCart, BarChart3, Zap } from 'lucide-react'
+import { Locale } from '@/i18n/config'
 
 interface Project {
   id: number
@@ -15,12 +17,17 @@ interface Project {
   demo?: string
 }
 
-const Projects = () => {
+interface ProjectsProps {
+  dict: any
+  lang: Locale
+}
+
+const Projects = ({ dict, lang }: ProjectsProps) => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'StokPro - Stok Yönetim Sistemi',
-      description: 'Gelişmiş stok takibi, barkod okuma, otomatik sipariş önerileri ve çoklu depo yönetimi ile kurumsal stok yönetim platformu.',
+      title: dict.projects.items.stokpro.title,
+      description: dict.projects.items.stokpro.description,
       image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop',
       tags: ['Next.js', 'PostgreSQL', 'Prisma', 'Redis', 'TypeScript'],
       category: 'Enterprise',
@@ -29,8 +36,8 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'FinansMax - Muhasebe Yazılımı',
-      description: 'Fatura kesme, gelir-gider takibi, cari hesap yönetimi, kasa/banka entegrasyonu ve raporlama özellikli tam muhasebe sistemi.',
+      title: dict.projects.items.finansmax.title,
+      description: dict.projects.items.finansmax.description,
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop',
       tags: ['React', 'Node.js', 'MongoDB', 'Chart.js', 'PDF Generator'],
       category: 'Enterprise',
@@ -39,8 +46,8 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'E-Ticaret Premium Platform',
-      description: 'Multi-vendor market, canlı ödeme entegrasyonu, kargo takibi, admin paneli ve gelişmiş analitiği ile komple e-ticaret çözümü.',
+      title: dict.projects.items.ecommerce.title,
+      description: dict.projects.items.ecommerce.description,
       image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop',
       tags: ['Next.js 14', 'Stripe', 'Supabase', 'Tailwind', 'Vercel'],
       category: 'E-Commerce',
@@ -49,8 +56,8 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: 'Kurumsal Web Sitesi Çözümleri',
-      description: 'SEO optimize, hızlı, modern ve mobil uyumlu kurumsal web siteleri. CMS entegrasyonu, çoklu dil desteği ve admin paneli.',
+      title: dict.projects.items.corporate.title,
+      description: dict.projects.items.corporate.description,
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop',
       tags: ['Next.js', 'Sanity CMS', 'Framer Motion', 'SEO'],
       category: 'Web Design',
@@ -59,8 +66,8 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: 'RestoPOS - Restoran Yönetim Sistemi',
-      description: 'Masa yönetimi, sipariş takibi, mutfak ekranı, kasa entegrasyonu ve raporlama ile tam restoran otomasyon sistemi.',
+      title: dict.projects.items.restopos.title,
+      description: dict.projects.items.restopos.description,
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop',
       tags: ['React', 'Firebase', 'Real-time DB', 'PWA'],
       category: 'Enterprise',
@@ -69,8 +76,8 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: 'CRM & Satış Takip Sistemi',
-      description: 'Müşteri ilişkileri yönetimi, satış hunisi, otomatik mail gönderimi, görev yönetimi ve detaylı raporlama sistemi.',
+      title: dict.projects.items.crm.title,
+      description: dict.projects.items.crm.description,
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop',
       tags: ['TypeScript', 'Express', 'PostgreSQL', 'React Query'],
       category: 'Enterprise',
@@ -79,15 +86,15 @@ const Projects = () => {
     },
   ]
 
-  const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))]
-  const [selectedCategory, setSelectedCategory] = useState('All')
+  const categories = [dict.projects.filterAll, ...Array.from(new Set(projects.map(p => p.category)))]
+  const [selectedCategory, setSelectedCategory] = useState(dict.projects.filterAll)
 
-  const filteredProjects = selectedCategory === 'All' 
+  const filteredProjects = selectedCategory === dict.projects.filterAll 
     ? projects 
     : projects.filter(p => p.category === selectedCategory)
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="py-20 relative" aria-labelledby="projects-heading">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <motion.div
@@ -96,12 +103,12 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
+          <h2 id="projects-heading" className="text-4xl md:text-5xl font-heading font-bold mb-4">
+            {dict.projects.title} <span className="gradient-text">{dict.projects.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-violet via-primary-cyan to-primary-emerald mx-auto rounded-full" />
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            Gerçek müşteriler için geliştirdiğim kurumsal seviye yazılım projeleri
+            {dict.projects.subtitle}
           </p>
         </motion.div>
 
@@ -146,10 +153,13 @@ const Projects = () => {
             >
               {/* Project Image with overlay */}
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  priority={index < 3}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/50 to-transparent opacity-70" />
                 {/* Category badge */}
@@ -208,6 +218,31 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
+          <div className="glossy-card rounded-2xl p-8 max-w-3xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-white">
+              {dict.projects.ctaTitle}
+            </h3>
+            <p className="text-gray-400 mb-6">
+              {dict.projects.ctaDescription}
+            </p>
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-violet via-primary-indigo to-primary-cyan text-white rounded-xl font-semibold shadow-glow-violet hover:shadow-glow-cyan transition-all duration-300"
+            >
+              {dict.projects.ctaButton}
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

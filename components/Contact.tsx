@@ -4,8 +4,14 @@ import { useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, User, MessageSquare, Send, CheckCircle, AlertCircle } from 'lucide-react'
 import emailjs from '@emailjs/browser'
+import { Locale } from '@/i18n/config'
 
-const Contact = () => {
+interface ContactProps {
+  dict: any
+  lang: Locale
+}
+
+const Contact = ({ dict, lang }: ContactProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -59,7 +65,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 relative">
+    <section id="contact" className="py-20 relative" aria-labelledby="contact-heading">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <motion.div
@@ -68,13 +74,12 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Get In <span className="gradient-text">Touch</span>
+          <h2 id="contact-heading" className="text-4xl md:text-5xl font-heading font-bold mb-4">
+            {dict.contact.title} <span className="gradient-text">{dict.contact.titleHighlight}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-accent-rose via-primary-violet to-primary-indigo mx-auto rounded-full mb-6" />
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out. 
-            I'm always open to discussing new opportunities and ideas!
+            {dict.contact.subtitle}
           </p>
         </motion.div>
 
@@ -86,10 +91,9 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-heading font-bold mb-6 text-white">Let's Connect</h3>
+              <h3 className="text-2xl font-heading font-bold mb-6 text-white">{dict.contact.connectTitle}</h3>
               <p className="text-gray-400 mb-8">
-                I'm currently available for freelance work and full-time opportunities. 
-                Let's build something amazing together!
+                {dict.contact.connectDescription}
               </p>
 
               <div className="space-y-6">
@@ -99,7 +103,7 @@ const Contact = () => {
                 >
                   <Mail className="text-primary-cyan mt-1" size={24} />
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Email</h4>
+                    <h4 className="font-semibold text-white mb-1">{dict.contact.email}</h4>
                     <a 
                       href="mailto:contact@semih.digital" 
                       className="text-gray-400 hover:text-primary-cyan transition-colors"
@@ -115,8 +119,8 @@ const Contact = () => {
                 >
                   <User className="text-primary-violet mt-1" size={24} />
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Location</h4>
-                    <p className="text-gray-400">Turkey 🇹🇷</p>
+                    <h4 className="font-semibold text-white mb-1">{dict.contact.location}</h4>
+                    <p className="text-gray-400">{dict.contact.locationValue}</p>
                   </div>
                 </motion.div>
 
@@ -126,8 +130,8 @@ const Contact = () => {
                 >
                   <MessageSquare className="text-primary-emerald mt-1" size={24} />
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Response Time</h4>
-                    <p className="text-gray-400">Usually within 24 hours</p>
+                    <h4 className="font-semibold text-white mb-1">{dict.contact.responseTime}</h4>
+                    <p className="text-gray-400">{dict.contact.responseValue}</p>
                   </div>
                 </motion.div>
               </div>
@@ -139,11 +143,11 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
                 {/* Name Input */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Name
+                    {dict.contact.form.nameLabel}
                   </label>
                   <input
                     type="text"
@@ -153,14 +157,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-dark-card liquid-glass rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-cyan transition-all duration-300 border border-primary-cyan/20"
-                    placeholder="John Doe"
+                    placeholder={dict.contact.form.namePlaceholder}
                   />
                 </div>
 
                 {/* Email Input */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Email
+                    {dict.contact.form.emailLabel}
                   </label>
                   <input
                     type="email"
@@ -170,14 +174,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-dark-card liquid-glass rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-cyan transition-all duration-300 border border-primary-cyan/20"
-                    placeholder="john@example.com"
+                    placeholder={dict.contact.form.emailPlaceholder}
                   />
                 </div>
 
                 {/* Message Input */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Message
+                    {dict.contact.form.messageLabel}
                   </label>
                   <textarea
                     id="message"
@@ -187,7 +191,7 @@ const Contact = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-3 bg-dark-card liquid-glass rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-cyan transition-all duration-300 resize-none border border-primary-cyan/20"
-                    placeholder="Tell me about your project..."
+                    placeholder={dict.contact.form.messagePlaceholder}
                   />
                 </div>
 
@@ -206,11 +210,11 @@ const Contact = () => {
                   {isSubmitting ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Sending...
+                      {dict.contact.form.sending}
                     </>
                   ) : (
                     <>
-                      Send Message
+                      {dict.contact.form.submit}
                       <Send size={20} />
                     </>
                   )}
@@ -224,7 +228,7 @@ const Contact = () => {
                     className="flex items-center gap-2 text-green-400 bg-green-400/10 border border-green-400/30 rounded-lg p-4"
                   >
                     <CheckCircle size={20} />
-                    <p>Message sent successfully! I'll get back to you soon.</p>
+                    <p>{dict.contact.form.success}</p>
                   </motion.div>
                 )}
 
@@ -235,7 +239,7 @@ const Contact = () => {
                     className="flex items-center gap-2 text-red-400 bg-red-400/10 border border-red-400/30 rounded-lg p-4"
                   >
                     <AlertCircle size={20} />
-                    <p>Oops! Something went wrong. Please try again.</p>
+                    <p>{dict.contact.form.error}</p>
                   </motion.div>
                 )}
               </form>

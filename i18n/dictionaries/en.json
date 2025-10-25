@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Semih Karakaş",
+    "subtitle": "16-year-old software developer passionate about modern web technologies",
+    "location": "Based in Turkey 🇹🇷",
+    "availability": "Available for work",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me"
+  },
+  "about": {
+    "title": "About",
+    "titleHighlight": "Me",
+    "heading": "Passionate Developer from Turkey",
+    "description1": "I'm a 16-year-old software developer with a deep passion for creating modern, efficient, and beautiful web applications. I love exploring new technologies and turning ideas into reality through code.",
+    "description2": "My journey in programming started at a young age, and I've been constantly learning and growing ever since. I specialize in full-stack web development with a focus on modern JavaScript frameworks and best practices.",
+    "techStack": "Tech Stack",
+    "viewProjects": "View My Projects",
+    "readBlog": "Read My Blog",
+    "skills": {
+      "webDev": {
+        "title": "Web Development",
+        "description": "Building modern, responsive web applications"
+      },
+      "fullStack": {
+        "title": "Full Stack",
+        "description": "Frontend and backend development expertise"
+      },
+      "performance": {
+        "title": "Performance",
+        "description": "Optimizing for speed and efficiency"
+      },
+      "modernTech": {
+        "title": "Modern Tech",
+        "description": "Always learning new technologies"
+      }
+    }
+  },
+  "projects": {
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "subtitle": "Enterprise-level software projects developed for real clients",
+    "filterAll": "All",
+    "ctaTitle": "Interested in working together?",
+    "ctaDescription": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+    "ctaButton": "Let's Talk",
+    "items": {
+      "stokpro": {
+        "title": "StokPro - Inventory Management System",
+        "description": "Enterprise inventory management platform with advanced stock tracking, barcode scanning, automated order suggestions, and multi-warehouse management."
+      },
+      "finansmax": {
+        "title": "FinansMax - Accounting Software",
+        "description": "Complete accounting system with invoicing, income-expense tracking, account management, cash/bank integration, and comprehensive reporting features."
+      },
+      "ecommerce": {
+        "title": "E-Commerce Premium Platform",
+        "description": "Complete e-commerce solution with multi-vendor marketplace, live payment integration, shipment tracking, admin panel, and advanced analytics."
+      },
+      "corporate": {
+        "title": "Corporate Website Solutions",
+        "description": "SEO-optimized, fast, modern, and mobile-responsive corporate websites with CMS integration, multi-language support, and admin panel."
+      },
+      "restopos": {
+        "title": "RestoPOS - Restaurant Management System",
+        "description": "Complete restaurant automation system with table management, order tracking, kitchen display, POS integration, and comprehensive reporting."
+      },
+      "crm": {
+        "title": "CRM & Sales Tracking System",
+        "description": "Customer relationship management with sales funnel, automated email campaigns, task management, and detailed reporting system."
+      }
+    }
+  },
+  "blog": {
+    "title": "Latest",
+    "titleHighlight": "Articles",
+    "viewAll": "View All Articles",
+    "ctaTitle": "Want to see what I've built?",
+    "ctaDescription": "Check out my portfolio of enterprise-level projects and innovative solutions, or get in touch to discuss your next project.",
+    "viewProjects": "View Projects",
+    "getInTouch": "Get in Touch"
+  },
+  "contact": {
+    "title": "Get In",
+    "titleHighlight": "Touch",
+    "subtitle": "Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to discussing new opportunities and ideas!",
+    "connectTitle": "Let's Connect",
+    "connectDescription": "I'm currently available for freelance work and full-time opportunities. Let's build something amazing together!",
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Turkey 🇹🇷",
+    "responseTime": "Response Time",
+    "responseValue": "Usually within 24 hours",
+    "form": {
+      "nameLabel": "Your Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Your Email",
+      "emailPlaceholder": "john@example.com",
+      "messageLabel": "Your Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "error": "Oops! Something went wrong. Please try again."
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  }
+}

@@ -98,6 +98,23 @@ body {
   left: 100%;
 }
 
+/* Reduce blur on mobile for better performance */
+@media (max-width: 768px) {
+  .liquid-glass {
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+  }
+  
+  .glass {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  .glossy-card {
+    backdrop-filter: blur(10px);
+  }
+}
+
 /* Simple button hover */
 .btn-glow:hover {
   background: rgba(255, 255, 255, 0.05);
@@ -131,7 +148,7 @@ body {
   box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Background gradient orbs */
+/* Background gradient orbs - Optimized for mobile */
 .bg-orb {
   position: fixed;
   border-radius: 50%;
@@ -139,6 +156,7 @@ body {
   opacity: 0.15;
   pointer-events: none;
   z-index: 0;
+  will-change: transform;
 }
 
 .bg-orb-1 {
@@ -165,6 +183,24 @@ body {
 
 .bg-orb-4 {
   display: none;
+}
+
+/* Disable animations on mobile for better performance */
+@media (max-width: 768px) {
+  .bg-orb {
+    animation: none !important;
+    filter: blur(60px);
+  }
+  
+  .bg-orb-1 {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .bg-orb-2 {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 @keyframes float {

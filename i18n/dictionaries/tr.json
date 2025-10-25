@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
+    "projects": "Projeler",
+    "blog": "Blog",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "greeting": "Merhaba, Ben Semih Karakaş",
+    "subtitle": "Modern web teknolojilerine tutkuyla bağlı 16 yaşında yazılım geliştirici",
+    "location": "Türkiye'den 🇹🇷",
+    "availability": "Çalışmaya Uygun",
+    "viewProjects": "Projeleri Gör",
+    "contactMe": "İletişime Geç"
+  },
+  "about": {
+    "title": "Hakkımda",
+    "titleHighlight": "",
+    "heading": "Türkiye'den Tutkulu Bir Geliştirici",
+    "description1": "Modern, verimli ve güzel web uygulamaları oluşturma tutkusuyla dolu 16 yaşında bir yazılım geliştiriciyim. Yeni teknolojileri keşfetmeyi ve fikirleri kod aracılığıyla hayata geçirmeyi seviyorum.",
+    "description2": "Programlama yolculuğum genç yaşta başladı ve o zamandan beri sürekli öğreniyor ve gelişiyorum. Modern JavaScript framework'leri ve en iyi uygulamalara odaklanarak full-stack web geliştirme konusunda uzmanlaştım.",
+    "techStack": "Teknoloji Yığını",
+    "viewProjects": "Projelerimi Gör",
+    "readBlog": "Blogumu Oku",
+    "skills": {
+      "webDev": {
+        "title": "Web Geliştirme",
+        "description": "Modern, responsive web uygulamaları geliştirme"
+      },
+      "fullStack": {
+        "title": "Full Stack",
+        "description": "Frontend ve backend geliştirme uzmanlığı"
+      },
+      "performance": {
+        "title": "Performans",
+        "description": "Hız ve verimlilik için optimizasyon"
+      },
+      "modernTech": {
+        "title": "Modern Teknoloji",
+        "description": "Her zaman yeni teknolojiler öğreniyorum"
+      }
+    }
+  },
+  "projects": {
+    "title": "Öne Çıkan",
+    "titleHighlight": "Projeler",
+    "subtitle": "Gerçek müşteriler için geliştirdiğim kurumsal seviye yazılım projeleri",
+    "filterAll": "Tümü",
+    "ctaTitle": "Birlikte çalışmak ister misiniz?",
+    "ctaDescription": "Yeni projeler, yaratıcı fikirler veya vizyonunuzun bir parçası olma fırsatları hakkında konuşmaya her zaman açığım.",
+    "ctaButton": "Hadi Konuşalım",
+    "items": {
+      "stokpro": {
+        "title": "StokPro - Stok Yönetim Sistemi",
+        "description": "Gelişmiş stok takibi, barkod okuma, otomatik sipariş önerileri ve çoklu depo yönetimi ile kurumsal stok yönetim platformu."
+      },
+      "finansmax": {
+        "title": "FinansMax - Muhasebe Yazılımı",
+        "description": "Fatura kesme, gelir-gider takibi, cari hesap yönetimi, kasa/banka entegrasyonu ve kapsamlı raporlama özellikleri ile tam muhasebe sistemi."
+      },
+      "ecommerce": {
+        "title": "E-Ticaret Premium Platform",
+        "description": "Çok satıcılı pazar yeri, canlı ödeme entegrasyonu, kargo takibi, yönetici paneli ve gelişmiş analitiği ile komple e-ticaret çözümü."
+      },
+      "corporate": {
+        "title": "Kurumsal Web Sitesi Çözümleri",
+        "description": "SEO optimize, hızlı, modern ve mobil uyumlu kurumsal web siteleri. CMS entegrasyonu, çoklu dil desteği ve yönetici paneli."
+      },
+      "restopos": {
+        "title": "RestoPOS - Restoran Yönetim Sistemi",
+        "description": "Masa yönetimi, sipariş takibi, mutfak ekranı, POS entegrasyonu ve kapsamlı raporlama ile tam restoran otomasyon sistemi."
+      },
+      "crm": {
+        "title": "CRM & Satış Takip Sistemi",
+        "description": "Satış hunisi, otomatik e-posta kampanyaları, görev yönetimi ve detaylı raporlama sistemi ile müşteri ilişkileri yönetimi."
+      }
+    }
+  },
+  "blog": {
+    "title": "Son",
+    "titleHighlight": "Yazılar",
+    "viewAll": "Tüm Yazıları Gör",
+    "ctaTitle": "Ne yaptığımı görmek ister misiniz?",
+    "ctaDescription": "Kurumsal seviye projelerimi ve yenilikçi çözümlerimi inceleyin veya bir sonraki projenizi konuşmak için iletişime geçin.",
+    "viewProjects": "Projeleri Gör",
+    "getInTouch": "İletişime Geç"
+  },
+  "contact": {
+    "title": "İletişime",
+    "titleHighlight": "Geçin",
+    "subtitle": "Aklınızda bir proje mi var veya işbirliği yapmak mı istiyorsunuz? Çekinmeden ulaşın. Yeni fırsatlar ve fikirler hakkında konuşmaya her zaman açığım!",
+    "connectTitle": "Hadi Bağlanalım",
+    "connectDescription": "Şu anda freelance çalışma ve tam zamanlı fırsatlar için müsaitim. Hadi birlikte harika bir şeyler inşa edelim!",
+    "email": "E-posta",
+    "location": "Konum",
+    "locationValue": "Türkiye 🇹🇷",
+    "responseTime": "Yanıt Süresi",
+    "responseValue": "Genellikle 24 saat içinde",
+    "form": {
+      "nameLabel": "Adınız",
+      "namePlaceholder": "Ahmet Yılmaz",
+      "emailLabel": "E-posta Adresiniz",
+      "emailPlaceholder": "ahmet@ornek.com",
+      "messageLabel": "Mesajınız",
+      "messagePlaceholder": "Projeniz hakkında bana bilgi verin...",
+      "submit": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesaj başarıyla gönderildi! En kısa sürede size geri döneceğim.",
+      "error": "Hata! Bir şeyler yanlış gitti. Lütfen tekrar deneyin."
+    }
+  },
+  "footer": {
+    "copyright": "Tüm hakları saklıdır."
+  }
+}

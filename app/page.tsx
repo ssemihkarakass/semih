@@ -1,17 +1,6 @@
-import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Projects from '@/components/Projects'
-import Blog from '@/components/Blog'
-import Contact from '@/components/Contact'
+import { redirect } from 'next/navigation'
 
-export default function Home() {
-  return (
-    <>
-      <Hero />
-      <About />
-      <Projects />
-      <Blog />
-      <Contact />
-    </>
-  )
+export default function RootPage() {
+  // Redirect to default language (English)
+  redirect('/en')
 }
